@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Dan • 80 de ani</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+
+    <div id="particles"></div>
+
+    <div id="envelope" class="envelope">
+
+        <div class="envelope-back"></div>
+
+        <div class="letter">
+            <div class="letter-content">
+                <span class="small-title">INVITAȚIE</span>
+                <h1>Dan</h1>
+                <div class="age-circle">80</div>
+                <p>11 Septembrie 2026</p>
+            </div>
+        </div>
+
+        <div class="envelope-front"></div>
+        <div class="envelope-flap"></div>
+
+        <div class="seal">D</div>
+
+    </div>
+
+    <p class="open-text">Apasă pentru a deschide invitația</p>
+
+</div>
+
+<!-- INVITAȚIE -->
+<main id="invitation">
+
+<section class="hero">
+    <div class="hero-content">
+
+        <div class="photo-frame">
+            <img src="assets/img/dan.jpg" />
+        </div>
+
+        <h3>Aniversare</h3>
+        <h1>Dan</h1>
+
+        <div class="age">80</div>
+
+        <p class="subtitle">
+            Vă invit cu drag la aniversarea mea de 80 de ani.
+        </p>
+
+    </div>
+</section>
+
+<section class="paper">
+    <div class="paper-content">
+        <h2>Invitație</h2>
+
+        <p>
+            11 Septembrie 2026, ora 14:00<br>
+            Millenium Pub & Cafe, Brașov
+        </p>
+
+        <p>
+            Vă aștept cu drag la o zi specială.
+        </p>
+
+        <div class="signature">Dan</div>
+    </div>
+</section>
+
+<section class="countdown-section">
+    <h2>Ne vedem în</h2>
+
+    <div id="countdown">
+        <div><span id="days"></span>Zile</div>
+        <div><span id="hours"></span>Ore</div>
+        <div><span id="minutes"></span>Min</div>
+        <div><span id="seconds"></span>Sec</div>
+    </div>
+</section>
+
+<section class="location">
+    <h2>Locație</h2>
+
+    <p>Millenium Pub & Cafe, Brașov</p>
+
+    <a class="btn" href="https://maps.google.com/?q=Millenium+Brasov" target="_blank">
+        Deschide harta
+    </a>
+</section>
+
+<section class="closing">
+    <h2>Vă aștept cu drag!</h2>
+    <p>Dan • 80 ani</p>
+</section>
+
+</main>
+
+<audio id="music" loop>
+<source src="assets/audio/wonderful-world.mp3" type="audio/mpeg">
+</audio>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
