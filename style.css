@@ -254,20 +254,35 @@ transform:translateX(-50%);
 }
 
 .envelope-back{
+
     position:absolute;
+
     inset:0;
 
-    background:#2d5b96;
+    background:linear-gradient(180deg,#194675,#0d2745);
 
-    z-index:2;
+    border-radius:10px;
+
+    z-index:1;
+
 }
 
-
 .envelope-front{
+
     position:absolute;
-    inset:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:145px;
+
+    background:#245286;
+
+    clip-path:polygon(0 0,50% 70%,100% 0,100% 100%,0 100%);
 
     z-index:3;
+
 }
 
 .envelope-flap{
@@ -277,7 +292,7 @@ transform:translateX(-50%);
 
     transform-origin:top;
 
-    z-index:4;
+    z-index:6;
 }
 
 .envelope-flap.open{
@@ -289,7 +304,7 @@ transform:rotateX(180deg);
 .seal{
     position:absolute;
 
-    z-index:5;
+    z-index:8;
 }
 
 }
@@ -307,18 +322,27 @@ transform:translate(-50%,-50%) scale(.3);
 =============================*/
 
 .letter{
+
     position:absolute;
+
     left:50%;
-    top:8px;
+
+    top:18px;
+
+    width:88%;
+
+    height:82%;
 
     transform:translateX(-50%);
-    width:86%;
-    height:88%;
 
-    background:#fffdf8;
+    background:var(--paper);
+
     border-radius:8px;
 
-    z-index:1;
+    transition:1.2s;
+
+    z-index:2;
+
 }
 
 .letter.show{
