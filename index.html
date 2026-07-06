@@ -2,123 +2,812 @@
 <html lang="ro">
 
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Dan • 80 de ani</title>
+    <meta charset="UTF-8">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Dan • 80 de ani</title>
 
-<link rel="stylesheet" href="style.css">
+    <meta
+        name="description"
+        content="Invitație aniversară Dan - 80 de ani">
+
+    <meta
+        name="theme-color"
+        content="#081827">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div id="loader">
+<!-- ===================================================
+                    PARTICULE
+=================================================== -->
 
-    <div id="particles"></div>
+<div id="particles"></div>
 
-    <div id="envelope" class="envelope">
+<!-- ===================================================
+                    LOADER
+=================================================== -->
 
-        <div class="envelope-back"></div>
+<section id="loader">
 
-        <div class="letter">
-            <div class="letter-content">
-                <span class="small-title">INVITAȚIE</span>
-                <h1>Dan</h1>
-                <div class="age-circle">80</div>
-                <p>11 Septembrie 2026</p>
+    <div class="loader-content">
+
+        <div
+            id="envelope"
+            class="envelope">
+
+            <div class="envelope-shadow"></div>
+
+            <div class="envelope-back"></div>
+
+            <div class="letter">
+
+                <div class="letter-inner">
+
+                    <span class="letter-top">
+                        INVITAȚIE
+                    </span>
+
+                    <h1>
+                        Dan
+                    </h1>
+
+                    <div class="age-circle">
+                        80
+                    </div>
+
+                    <p>
+                        11 Septembrie 2026
+                    </p>
+
+                </div>
+
             </div>
+
+            <div class="envelope-front"></div>
+
+            <div class="envelope-flap"></div>
+
+            <div class="seal">
+
+                <span>D</span>
+
+            </div>
+
         </div>
 
-        <div class="envelope-front"></div>
-        <div class="envelope-flap"></div>
+        <p class="loader-text">
 
-        <div class="seal">D</div>
+            Apasă pe plic pentru a deschide invitația
+
+        </p>
 
     </div>
 
-    <p class="open-text">Apasă pentru a deschide invitația</p>
+</section>
 
-</div>
+<!-- ===================================================
+                PAGINA PRINCIPALĂ
+=================================================== -->
 
-<!-- INVITAȚIE -->
-<main id="invitation">
+<main
+    id="invitation"
+    style="display:none;">
+
+<!-- ===================================================
+                    HERO
+=================================================== -->
 
 <section class="hero">
+
+    <div class="hero-overlay"></div>
+
     <div class="hero-content">
 
         <div class="photo-frame">
-            <img src="assets/img/dan.jpg" />
+
+            <img
+                src="assets/img/dan.jpg"
+                alt="Dan">
+
         </div>
 
-        <h3>Aniversare</h3>
-        <h1>Dan</h1>
+        <span class="hero-small">
 
-        <div class="age">80</div>
+            Cu bucurie vă invit la aniversarea mea
 
-        <p class="subtitle">
-            Vă invit cu drag la aniversarea mea de 80 de ani.
+        </span>
+
+        <h1>
+
+            Dan
+
+        </h1>
+
+        <div class="hero-age">
+
+            80
+
+        </div>
+
+        <p class="hero-text">
+
+            Vă invit să sărbătorim împreună
+            împlinirea frumoasei vârste de
+            <strong>80 de ani</strong>.
+
         </p>
+
+        <div class="hero-date">
+
+            <div class="hero-item">
+
+                <span>📅</span>
+
+                <div>
+
+                    <strong>11 Septembrie 2026</strong>
+
+                    <small>Vineri</small>
+
+                </div>
+
+            </div>
+
+            <div class="hero-item">
+
+                <span>🕑</span>
+
+                <div>
+
+                    <strong>Ora 14:00</strong>
+
+                    <small>Prânz festiv</small>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
+
 </section>
 
-<section class="paper">
-    <div class="paper-content">
-        <h2>Invitație</h2>
+<!-- ===================================================
+                    INVITAȚIE
+=================================================== -->
 
-        <p>
-            11 Septembrie 2026, ora 14:00<br>
-            Millenium Pub & Cafe, Brașov
-        </p>
+<section class="invitation-section">
 
-        <p>
-            Vă aștept cu drag la o zi specială.
-        </p>
+    <div class="paper">
 
-        <div class="signature">Dan</div>
+        <div class="paper-border">
+
+            <span class="ornament">
+
+                ❦
+
+            </span>
+
+            <h2>
+
+                Invitație
+
+            </h2>
+
+            <p>
+
+                Am plăcerea de a vă invita
+                la aniversarea mea.
+
+            </p>
+
+            <p>
+
+                Petrecerea va avea loc
+                <strong>
+                    vineri,
+                    11 septembrie 2026,
+                    ora 14:00
+                </strong>
+
+                la
+
+                <strong>
+
+                    Restaurantul
+                    Millenium Pub & Cafe
+
+                </strong>
+
+                din Brașov.
+
+            </p>
+
+            <p>
+
+                Vă rog să confirmați
+                prezența până la data
+                de
+                <strong>
+                    25 august 2026.
+                </strong>
+
+            </p>
+
+            <div class="signature">
+
+                Dan
+
+            </div>
+
+        </div>
+
     </div>
+
 </section>
+<!-- ===================================================
+                    COUNTDOWN
+=================================================== -->
 
 <section class="countdown-section">
-    <h2>Ne vedem în</h2>
 
-    <div id="countdown">
-        <div><span id="days"></span>Zile</div>
-        <div><span id="hours"></span>Ore</div>
-        <div><span id="minutes"></span>Min</div>
-        <div><span id="seconds"></span>Sec</div>
+    <div class="container">
+
+        <span class="section-subtitle">
+            Ne despart doar
+        </span>
+
+        <h2>
+            Numărătoarea inversă
+        </h2>
+
+        <div id="countdown">
+
+            <div class="count-box">
+                <span id="days">000</span>
+                <small>Zile</small>
+            </div>
+
+            <div class="count-box">
+                <span id="hours">00</span>
+                <small>Ore</small>
+            </div>
+
+            <div class="count-box">
+                <span id="minutes">00</span>
+                <small>Minute</small>
+            </div>
+
+            <div class="count-box">
+                <span id="seconds">00</span>
+                <small>Secunde</small>
+            </div>
+
+        </div>
+
     </div>
+
 </section>
 
-<section class="location">
-    <h2>Locație</h2>
+<!-- ===================================================
+                    LOCAȚIE
+=================================================== -->
 
-    <p>Millenium Pub & Cafe, Brașov</p>
+<section class="location-section">
 
-    <a class="btn" href="https://maps.google.com/?q=Millenium+Brasov" target="_blank">
-        Deschide harta
-    </a>
+    <div class="container">
+
+        <span class="section-subtitle">
+
+            Locația evenimentului
+
+        </span>
+
+        <h2>
+
+            Millenium Pub & Cafe
+
+        </h2>
+
+        <p>
+
+            Str. Carpaților 93,
+            Brașov
+
+        </p>
+
+        <div class="map-buttons">
+
+            <a
+                href="https://maps.google.com/?q=Millenium+Pub+Cafe+Brasov"
+                target="_blank"
+                class="btn">
+
+                Google Maps
+
+            </a>
+
+            <a
+                href="https://waze.com/ul?q=Millenium+Pub+Cafe+Brasov"
+                target="_blank"
+                class="btn btn-outline">
+
+                Waze
+
+            </a>
+
+        </div>
+
+        <div class="map-frame">
+
+            <iframe
+                src="https://www.google.com/maps?q=Millenium+Pub+Cafe+Brasov&output=embed"
+                loading="lazy"
+                allowfullscreen>
+
+            </iframe>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section class="closing">
-    <h2>Vă aștept cu drag!</h2>
-    <p>Dan • 80 ani</p>
+<!-- ===================================================
+                    PROGRAM
+=================================================== -->
+
+<section class="timeline">
+
+    <div class="container">
+
+        <span class="section-subtitle">
+
+            Program
+
+        </span>
+
+        <h2>
+
+            Cum va decurge ziua
+
+        </h2>
+
+        <div class="timeline-list">
+
+            <div class="timeline-item">
+
+                <div class="time">
+
+                    14:00
+
+                </div>
+
+                <div class="event">
+
+                    Primirea invitaților
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="time">
+
+                    14:30
+
+                </div>
+
+                <div class="event">
+
+                    Masa festivă
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="time">
+
+                    16:00
+
+                </div>
+
+                <div class="event">
+
+                    Tort aniversar
+
+                </div>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <div class="time">
+
+                    17:00
+
+                </div>
+
+                <div class="event">
+
+                    Muzică și voie bună
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
+
+<!-- ===================================================
+                    GALERIE FOTO
+=================================================== -->
+
+<section class="gallery-section">
+
+    <div class="container">
+
+        <span class="section-subtitle">
+
+            Amintiri
+
+        </span>
+
+        <h2>
+
+            Galerie foto
+
+        </h2>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+
+                <img
+                    src="assets/img/dan.jpg"
+                    alt="Dan">
+
+            </div>
+
+            <div class="gallery-item">
+
+                <img
+                    src="assets/img/dan.jpg"
+                    alt="Dan">
+
+            </div>
+
+            <div class="gallery-item">
+
+                <img
+                    src="assets/img/dan.jpg"
+                    alt="Dan">
+
+            </div>
+
+            <div class="gallery-item">
+
+                <img
+                    src="assets/img/dan.jpg"
+                    alt="Dan">
+
+            </div>
+
+            <div class="gallery-item">
+
+                <img
+                    src="assets/img/dan.jpg"
+                    alt="Dan">
+
+            </div>
+
+            <div class="gallery-item">
+
+                <img
+                    src="assets/img/dan.jpg"
+                    alt="Dan">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===================================================
+                    RSVP
+=================================================== -->
+
+<section class="rsvp-section">
+
+    <div class="container">
+
+        <span class="section-subtitle">
+
+            Confirmare prezență
+
+        </span>
+
+        <h2>
+
+            Vă rog să confirmați participarea
+
+        </h2>
+
+        <p class="section-text">
+
+            Pentru o bună organizare, vă rog să confirmați
+            prezența până la data de
+            <strong>25 august 2026</strong>.
+
+        </p>
+
+        <form
+            id="rsvpForm"
+            class="rsvp-form">
+
+            <div class="form-row">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Nume și prenume"
+                    required>
+
+            </div>
+
+            <div class="form-row">
+
+                <select
+                    id="attendance"
+                    required>
+
+                    <option value="">
+                        Veți participa?
+                    </option>
+
+                    <option value="Da">
+                        Da, particip
+                    </option>
+
+                    <option value="Nu">
+                        Nu pot participa
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-row">
+
+                <select id="persons">
+
+                    <option value="1">
+                        1 persoană
+                    </option>
+
+                    <option value="2">
+                        2 persoane
+                    </option>
+
+                    <option value="3">
+                        3 persoane
+                    </option>
+
+                    <option value="4">
+                        4 persoane
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-row">
+
+                <textarea
+                    id="message"
+                    rows="5"
+                    placeholder="Mesaj pentru Dan (opțional)"></textarea>
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-gold">
+
+                Trimite confirmarea
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- ===================================================
+                    MESAJ FINAL
+=================================================== -->
+
+<section class="closing-section">
+
+    <div class="closing-card">
+
+        <span class="closing-small">
+
+            Vă mulțumesc!
+
+        </span>
+
+        <h2>
+
+            Abia aștept să ne revedem.
+
+        </h2>
+
+        <p>
+
+            Prezența dumneavoastră va transforma această zi
+            într-o amintire de neuitat.
+
+        </p>
+
+        <div class="closing-signature">
+
+            Dan
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================
+                    MUSIC PLAYER
+=================================================== -->
+
+<button
+    id="musicButton"
+    aria-label="Muzică">
+
+    ♪
+
+</button>
+
+<audio
+    id="music"
+    loop>
+
+    <source
+        src="assets/audio/wonderful-world.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<!-- ===================================================
+                    BACK TO TOP
+=================================================== -->
+
+<button
+    id="topButton"
+    aria-label="Sus">
+
+    ↑
+
+</button>
+
+<!-- ===================================================
+                    LIGHTBOX
+=================================================== -->
+
+<div
+    id="lightbox"
+    class="lightbox">
+
+    <span id="lightboxClose">
+
+        &times;
+
+    </span>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Imagine">
+
+</div>
+
+<!-- ===================================================
+                    FOOTER
+=================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <p>
+
+            Dan • 80 de ani
+
+        </p>
+
+        <small>
+
+            11 Septembrie 2026 • Brașov
+
+        </small>
+
+    </div>
+
+</footer>
+<!-- ===================================================
+                DECORAȚIUNI
+=================================================== -->
+
+<div class="floating-ornaments">
+
+    <span class="ornament ornament-1">✦</span>
+    <span class="ornament ornament-2">✧</span>
+    <span class="ornament ornament-3">✦</span>
+    <span class="ornament ornament-4">✧</span>
+    <span class="ornament ornament-5">✦</span>
+
+</div>
+
+<!-- ===================================================
+                CURSOR GLOW
+=================================================== -->
+
+<div id="cursorGlow"></div>
+
+<!-- ===================================================
+                PRELOADER OVERLAY
+=================================================== -->
+
+<div id="pageTransition"></div>
+
+<!-- ===================================================
+                SCRIPTS
+=================================================== -->
+
+<script src="config.js"></script>
+
+<script src="script.js"></script>
 
 </main>
 
-<audio id="music" loop>
-<source src="assets/audio/wonderful-world.mp3" type="audio/mpeg">
-</audio>
-
-<script src="config.js"></script>
-<script src="script.js"></script>
-
 </body>
+
 </html>
