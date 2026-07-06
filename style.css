@@ -197,34 +197,26 @@ text-align:center;
 
 .loader-text{
 
-margin-top:40px;
+    margin-top:35px;
 
-font-size:15px;
+    font-size:20px;
 
-letter-spacing:2px;
+    letter-spacing:2px;
 
-color:#ddd;
+    color:white;
 
 }
-
 /*=============================
         ENVELOPE
 =============================*/
 
 .envelope{
-
-width:360px;
-
-height:240px;
-
-position:relative;
-
-cursor:pointer;
-
-perspective:1000px;
-
-transition:.4s;
-
+    position:relative;
+    width:420px;
+    height:270px;
+    max-width:90vw;
+    margin:auto;
+    perspective:1200px;
 }
 
 .envelope:hover{
@@ -275,47 +267,71 @@ transform:translateX(-50%);
 
     width:100%;
 
-    height:145px;
+    height:150px;
 
-    background:#245286;
+    background:#2d5f96;
 
-    clip-path:polygon(0 0,50% 70%,100% 0,100% 100%,0 100%);
+    clip-path:polygon(
+        0 0,
+        50% 58%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
 
-    z-index:3;
+    z-index:5;
 
 }
 
 .envelope-flap{
+
     position:absolute;
+
     top:0;
+
     left:0;
 
     width:100%;
-    height:120px;
 
-    background:#3f6ea7;
+    height:145px;
 
-    clip-path:polygon(0 0,100% 0,50% 100%);
+    background:#3d6fa8;
 
-    transform-origin:top;
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
 
-    transition:1s;
+    transform-origin:top center;
 
-    z-index:6;
+    transition:1.2s ease;
+
+    z-index:8;
+
 }
-
 .envelope-flap.open{
     transform:rotateX(180deg);
 }
-
 .seal{
-    position:absolute;
 
-    z-index:8;
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    font-size:30px;
+
+    left:50%;
+
+    top:52%;
+
+    transform:translate(-50%,-50%);
+
+    z-index:10;
+
 }
-
-}
-
 .seal.hide{
 
 opacity:0;
@@ -330,11 +346,11 @@ transform:translate(-50%,-50%) scale(.3);
 
 .letter{
     position:absolute;
-    left:20px;
-    top:20px;
-
-    width:320px;
-    height:200px;
+    left:50%;
+    bottom:20px;
+    transform:translateX(-50%);
+    width:82%;
+    height:250px;
 
     background:#fffdf8;
     border-radius:10px;
@@ -343,9 +359,10 @@ transform:translate(-50%,-50%) scale(.3);
     justify-content:center;
     align-items:center;
 
-    z-index:1;
+    box-shadow:0 8px 25px rgba(0,0,0,.18);
 
     transition:1.2s ease;
+    z-index:2;
 }
 
 .letter.open{
@@ -353,9 +370,7 @@ transform:translate(-50%,-50%) scale(.3);
 }
 
 .letter.show{
-
-transform:translateX(-50%) translateY(-170px);
-
+    transform:translateX(-50%) translateY(-170px);
 }
 
 .letter-inner{
@@ -1792,7 +1807,57 @@ height:54px;
 }
 
 }
+@media (max-width:768px){
 
+    .envelope{
+
+        width:300px;
+
+        height:200px;
+
+    }
+
+    .letter{
+
+        width:82%;
+
+        height:190px;
+
+    }
+
+    .letter.show{
+
+        transform:translateX(-50%) translateY(-130px);
+
+    }
+
+    .letter h1{
+
+        font-size:36px;
+
+    }
+
+    .age-circle{
+
+        width:70px;
+
+        height:70px;
+
+        font-size:28px;
+
+    }
+
+    .loader-text{
+
+        font-size:16px;
+
+        padding:0 20px;
+
+        text-align:center;
+
+    }
+
+}
 /*=====================================================
                     FINAL
 ======================================================*/
