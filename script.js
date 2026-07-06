@@ -193,8 +193,6 @@ function updateCountdown() {
 const revealElements = document.querySelectorAll(
 
     ".paper,\
-     .timeline-item,\
-     .gallery-item,\
      .location-section,\
      .countdown-section,\
      .rsvp-section,\
@@ -305,60 +303,6 @@ document.querySelectorAll(".photo-frame img").forEach(img => {
     });
 
 });
-/*=========================================
-            GALERIE LIGHTBOX
-=========================================*/
-
-const galleryImages = document.querySelectorAll(".gallery-item img");
-
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightboxImage");
-const lightboxClose = document.getElementById("lightboxClose");
-
-galleryImages.forEach(img => {
-
-    img.addEventListener("click", () => {
-
-        lightbox.classList.add("active");
-
-        lightboxImage.src = img.src;
-
-        lightboxImage.alt = img.alt;
-
-        document.body.style.overflow = "hidden";
-
-    });
-
-});
-
-if (lightboxClose) {
-
-    lightboxClose.addEventListener("click", closeLightbox);
-
-}
-
-if (lightbox) {
-
-    lightbox.addEventListener("click", e => {
-
-        if (e.target === lightbox) {
-
-            closeLightbox();
-
-        }
-
-    });
-
-}
-
-function closeLightbox() {
-
-    lightbox.classList.remove("active");
-
-    document.body.style.overflow = "";
-
-}
-
 /*=========================================
             PARTICULE
 =========================================*/
@@ -548,10 +492,7 @@ if (musicButton && music) {
 document.querySelectorAll(
 
     ".paper,\
-     .count-box,\
-     .gallery-item,\
-     .timeline-item"
-
+     .count-box"
 ).forEach(card => {
 
     card.addEventListener("mouseenter", () => {
