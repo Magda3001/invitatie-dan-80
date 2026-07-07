@@ -1,76 +1,43 @@
 /*=====================================================
-            CONFIG.JS
-            Dan • 80 de ani
-======================================================*/
+                INVITAȚIE DAN • 80 ANI
+=====================================================*/
 
 const CONFIG = {
-
-    /*=================================================
-                    EVENIMENT
-    =================================================*/
 
     celebrant: "Dan",
 
     age: 80,
 
-    eventDate: "2026-09-11T14:00:00",
+    date: "2026-09-11",
 
-    eventDay: "Vineri",
+    time: "17:00",
 
-    eventHour: "14:00",
+    eventDate: "2026-09-11T17:00:00",
 
-    venue: "Millenium Pub & Cafe",
+    location: "Str. Negoiu nr. 14, Brașov",
 
-    address: "Str. Carpaților 93, Brașov",
+    maps: "https://maps.google.com/?q=Strada+Negoiu+14+Brasov",
 
-    /*=================================================
-                    MEDIA
-    =================================================*/
-
-    heroImage: "assets/img/dan.jpg",
+    whatsapp: "40722123456",
 
     music: "assets/audio/wonderful-world.mp3",
 
-    /*=================================================
-                    GOOGLE MAPS
-    =================================================*/
+    photo: "assets/img/dan.jpg",
 
-    googleMaps:
+    invitationTitle: "Invitație aniversară",
 
-"https://maps.google.com/?q=Millenium+Pub+Cafe+Brasov",
+    invitationText: `
 
-    embedMap:
+Cu mare bucurie vă invităm să fiți alături de noi
+la aniversarea celor 80 de ani ai lui Dan.
 
-"https://www.google.com/maps?q=Millenium+Pub+Cafe+Brasov&output=embed",
+Va fi o zi plină de emoție, amintiri frumoase,
+voie bună și oameni dragi.
 
-    waze:
+Prezența dumneavoastră va fi cel mai frumos cadou.
 
-"https://waze.com/ul?q=Millenium+Pub+Cafe+Brasov",
+`,
 
-    /*=================================================
-                    RSVP
-    =================================================*/
-
-    rsvpDeadline: "2026-08-25",
-
-    whatsapp: "",
-
-    email: "",
-
-    /*=================================================
-                    EFECTE
-    =================================================*/
-
-    autoplayMusic: true,
-
-    particles: true,
-
-    cursorGlow: true,
-
-    lightbox: true,
-
-    countdown: true,
-
-    animations: true
+    rsvpDeadline: "20 august 2026"
 
 };
