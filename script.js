@@ -1,585 +1,372 @@
-/* ==========================================
-   DAN • 80 ANI
-   SCRIPT.JS
-========================================== */
-
-"use strict";
-
-/*=============================
-    ELEMENTE
-=============================*/
+/*=====================================================
+                INVITATIE DAN 80 ANI
+=====================================================*/
 
 const loader = document.getElementById("loader");
-const invitation = document.getElementById("invitation");
-
 const envelope = document.getElementById("envelope");
-const flap = document.querySelector(".envelope-flap");
+const flap = document.getElementById("flap");
 const letter = document.querySelector(".letter");
-const seal = document.querySelector(".seal");
+const seal = document.getElementById("seal");
+
+const invitation = document.getElementById("invitation");
 
 const music = document.getElementById("music");
 const musicButton = document.getElementById("musicButton");
 
-const topButton = document.getElementById("topButton");
+const rsvpButton = document.getElementById("rsvpButton");
 
-const cursorGlow = document.getElementById("cursorGlow");
+let opened = false;
+let musicStarted = false;
 
-let invitationOpened = false;
+/*=====================================================
+                WHATSAPP
+=====================================================*/
 
-/*=============================
-    DESCHIDERE PLIC
-=============================*/
+const phone = CONFIG.whatsapp;
 
-if (envelope) {
+const whatsappMessage =
 
-    envelope.addEventListener("click", openInvitation);
+`Bună!
+
+Confirm cu drag participarea la aniversarea celor ${CONFIG.age} de ani ai lui ${CONFIG.celebrant}.
+
+Ne vedem pe ${CONFIG.date}!
+
+`;
+
+if(rsvpButton){
+
+    rsvpButton.href =
+    `https://wa.me/${phone}?text=${encodeURIComponent(whatsappMessage)}`;
 
 }
 
-function openInvitation() {
+/*=====================================================
+                MUZICA
+=====================================================*/
 
-    if (invitationOpened) return;
+if(music){
 
-    invitationOpened = true;
+    music.volume = 0.35;
 
-    flap.classList.add("open");
+}
+
+function startMusic(){
+
+    if(musicStarted) return;
+
+    musicStarted = true;
+
+    music.play().catch(()=>{});
+
+    musicButton.classList.add("playing");
+
+}
+
+musicButton?.addEventListener("click",()=>{
+
+    if(music.paused){
+
+        music.play();
+
+        musicButton.classList.add("playing");
+
+    }else{
+
+        music.pause();
+
+        musicButton.classList.remove("playing");
+
+    }
+
+});
+
+/*=====================================================
+                DESCHIDERE PLIC
+=====================================================*/
+
+function openEnvelope(){
+
+    if(opened) return;
+
+    opened = true;
+
+    /* ascunde sigiliul */
 
     seal.classList.add("hide");
 
-    letter.classList.add("show");
+    /* deschide clapeta */
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
-        loader.classList.add("fade-out");
+        flap.classList.add("open");
 
-    }, 1800);
+    },350);
 
-    setTimeout(() => {
+    /* scoate scrisoarea */
 
-        loader.style.display = "none";
+    setTimeout(()=>{
 
-        invitation.style.display = "block";
+        letter.classList.add("open");
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+    },900);
 
-        animateSections();
+    /* ascunde loader */
 
-        startCountdown();
+    setTimeout(()=>{
+
+        loader.style.opacity="0";
+
+    },2400);
+
+    setTimeout(()=>{
+
+        loader.style.display="none";
+
+        invitation.classList.add("show");
 
         startMusic();
 
-    }, 2600);
+        animateSections();
+
+    },3200);
 
 }
 
-/*=============================
-    MUZICĂ
-=============================*/
+envelope.addEventListener(
 
-function startMusic() {
+"click",
 
-    if (!music) return;
+openEnvelope
 
-    music.volume = 0;
+);
 
-    music.play().catch(() => {});
+/*=====================================================
+                COUNTDOWN
+=====================================================*/
 
-    let volume = 0;
+const targetDate =
 
-    const fade = setInterval(() => {
+new Date(CONFIG.eventDate).getTime();
 
-        volume += 0.02;
-
-        if (volume >= 0.35) {
-
-            volume = 0.35;
-
-            clearInterval(fade);
-
-        }
-
-        music.volume = volume;
-
-    }, 120);
-
-}
-
-if (musicButton) {
-
-    musicButton.addEventListener("click", () => {
-
-        if (music.paused) {
-
-            music.play();
-
-            musicButton.classList.add("playing");
-
-        } else {
-
-            music.pause();
-
-            musicButton.classList.remove("playing");
-
-        }
-
-    });
-
-}
-/*=========================================
-            COUNTDOWN
-=========================================*/
-
-const targetDate = new Date("2026-09-11T14:00:00").getTime();
-
-function startCountdown() {
-
-    updateCountdown();
-
-    setInterval(updateCountdown, 1000);
-
-}
-
-function updateCountdown() {
+function updateCountdown(){
 
     const now = new Date().getTime();
 
-    const distance = targetDate - now;
+    const distance = targetDate-now;
 
-    if (distance <= 0) {
-
-        document.getElementById("days").textContent = "0";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
+    if(distance<=0){
 
         return;
 
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const days = Math.floor(
+        distance/(1000*60*60*24)
+    );
 
     const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24))
-        / (1000 * 60 * 60)
+        (distance%(1000*60*60*24))/
+        (1000*60*60)
     );
 
     const minutes = Math.floor(
-        (distance % (1000 * 60 * 60))
-        / (1000 * 60)
+        (distance%(1000*60*60))/
+        (1000*60)
     );
 
     const seconds = Math.floor(
-        (distance % (1000 * 60))
-        / 1000
+        (distance%(1000*60))/1000
     );
 
     document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-    document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-    document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
 
 }
 
-/*=========================================
-            SCROLL REVEAL
-=========================================*/
+updateCountdown();
 
-const revealElements = document.querySelectorAll(
+setInterval(updateCountdown,1000);
+/*=====================================================
+                ANIMAȚII LA SCROLL
+=====================================================*/
 
-    ".paper,\
-     .location-section,\
-     .countdown-section,\
-     .rsvp-section,\
-     .closing-section"
+function animateSections(){
 
-);
+    const elements = document.querySelectorAll(
 
-function animateSections() {
+        ".hero,.section,.card,.detail-card"
 
-    reveal();
+    );
 
-    window.addEventListener("scroll", reveal);
+    const observer = new IntersectionObserver(
 
-}
+        (entries)=>{
 
-function reveal() {
+            entries.forEach(entry=>{
 
-    const trigger = window.innerHeight * 0.85;
+                if(entry.isIntersecting){
 
-    revealElements.forEach(el => {
+                    entry.target.classList.add("show");
 
-        const top = el.getBoundingClientRect().top;
+                }
 
-        if (top < trigger) {
+            });
 
-            el.classList.add("show");
+        },
+
+        {
+
+            threshold:0.15
 
         }
 
-    });
+    );
+
+    elements.forEach(el=>observer.observe(el));
 
 }
 
-/*=========================================
-            TOP BUTTON
-=========================================*/
-
-if (topButton) {
-
-    window.addEventListener("scroll", () => {
-
-        if (window.scrollY > 500) {
-
-            topButton.classList.add("show");
-
-        } else {
-
-            topButton.classList.remove("show");
-
-        }
-
-    });
-
-    topButton.addEventListener("click", () => {
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: "smooth"
-
-        });
-
-    });
-
-}
-
-/*=========================================
-            CURSOR GLOW
-=========================================*/
-
-if (cursorGlow) {
-
-    document.addEventListener("mousemove", e => {
-
-        cursorGlow.style.left = e.clientX + "px";
-        cursorGlow.style.top = e.clientY + "px";
-
-    });
-
-}
-
-/*=========================================
-            PHOTO EFFECT
-=========================================*/
-
-document.querySelectorAll(".photo-frame img").forEach(img => {
-
-    img.addEventListener("mousemove", e => {
-
-        const rect = img.getBoundingClientRect();
-
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-        img.style.transform =
-
-            `scale(1.05)
-             rotateX(${-y * 10}deg)
-             rotateY(${x * 10}deg)`;
-
-    });
-
-    img.addEventListener("mouseleave", () => {
-
-        img.style.transform = "scale(1)";
-
-    });
-
-});
-/*=========================================
-            PARTICULE
-=========================================*/
-
-const particles = document.getElementById("particles");
-
-function createParticle() {
-
-    if (!particles) return;
-
-    const particle = document.createElement("span");
-
-    particle.className = "particle";
-
-    particle.style.left = Math.random() * 100 + "%";
-
-    const size = Math.random() * 6 + 2;
-
-    particle.style.width = size + "px";
-    particle.style.height = size + "px";
-
-    particle.style.animationDuration =
-        (Math.random() * 6 + 6) + "s";
-
-    particle.style.opacity =
-        Math.random() * 0.7 + 0.2;
-
-    particles.appendChild(particle);
-
-    setTimeout(() => {
-
-        particle.remove();
-
-    }, 12000);
-
-}
-
-setInterval(createParticle, 220);
-
-/*=========================================
-            FORMULAR RSVP
-=========================================*/
-
-const rsvpForm = document.getElementById("rsvpForm");
-
-if (rsvpForm) {
-
-    rsvpForm.addEventListener("submit", function(e){
-
-        e.preventDefault();
-
-        const button =
-            this.querySelector("button");
-
-        button.disabled = true;
-
-        button.innerHTML = "Se trimite...";
-
-        setTimeout(()=>{
-
-            button.innerHTML =
-                "Mulțumim pentru confirmare!";
-
-            button.classList.add("success");
-
-            this.reset();
-
-        },1500);
-
-    });
-
-}
-
-/*=========================================
-            EFECTE BUTOANE
-=========================================*/
-
-document.querySelectorAll(".btn").forEach(btn=>{
-
-    btn.addEventListener("mouseenter",()=>{
-
-        btn.classList.add("hover");
-
-    });
-
-    btn.addEventListener("mouseleave",()=>{
-
-        btn.classList.remove("hover");
-
-    });
-
-});
-
-/*=========================================
-            EFECT PARALLAX HERO
-=========================================*/
-
-const hero = document.querySelector(".hero");
-
-window.addEventListener("scroll",()=>{
-
-    if(!hero) return;
-
-    const y = window.scrollY;
-
-    hero.style.backgroundPositionY =
-        y * 0.4 + "px";
-
-});
-
-/*=========================================
-            APARIȚIE HERO
-=========================================*/
-
-window.addEventListener("load",()=>{
-
-    document.body.classList.add("loaded");
-
-});
-/*=========================================
-            PRELOAD IMAGINI
-=========================================*/
-
-function preloadImages() {
-
-    const images = document.querySelectorAll("img");
-
-    images.forEach(image => {
-
-        const img = new Image();
-
-        img.src = image.src;
-
-    });
-
-}
-
-/*=========================================
-            SMOOTH SCROLL
-=========================================*/
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener("click", function (e) {
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (!target) return;
-
-        e.preventDefault();
-
-        target.scrollIntoView({
-
-            behavior: "smooth",
-            block: "start"
-
-        });
-
-    });
-
-});
-
-/*=========================================
-            BUTON MUZICĂ
-=========================================*/
-
-if (musicButton && music) {
-
-    music.addEventListener("play", () => {
-
-        musicButton.classList.add("playing");
-
-    });
-
-    music.addEventListener("pause", () => {
-
-        musicButton.classList.remove("playing");
-
-    });
-
-}
-
-/*=========================================
-            EFECTE CARDURI
-=========================================*/
+/*=====================================================
+                EFECTE CARDURI
+=====================================================*/
 
 document.querySelectorAll(
 
-    ".paper,\
-     .count-box"
-).forEach(card => {
+".card,.detail-card"
 
-    card.addEventListener("mouseenter", () => {
+).forEach(card=>{
 
-        card.style.transform =
+    card.addEventListener("mouseenter",()=>{
 
-            "translateY(-6px)";
+        card.style.transform="translateY(-10px)";
 
     });
 
-    card.addEventListener("mouseleave", () => {
+    card.addEventListener("mouseleave",()=>{
 
-        card.style.transform = "";
+        card.style.transform="translateY(0)";
 
     });
 
 });
 
-/*=========================================
-            SCROLL PROGRESS
-=========================================*/
+/*=====================================================
+                PARALLAX HERO
+=====================================================*/
 
-const progress = document.createElement("div");
+window.addEventListener("scroll",()=>{
 
-progress.id = "scrollProgress";
+    const hero=document.querySelector(".hero");
 
-document.body.appendChild(progress);
+    if(!hero) return;
 
-window.addEventListener("scroll", () => {
+    const y=window.scrollY;
 
-    const total =
-
-        document.documentElement.scrollHeight
-        - window.innerHeight;
-
-    const current =
-
-        window.scrollY;
-
-    const percent =
-
-        (current / total) * 100;
-
-    progress.style.width =
-
-        percent + "%";
+    hero.style.backgroundPosition=`center ${y*0.35}px`;
 
 });
 
-/*=========================================
-            REDIMENSIONARE
-=========================================*/
+/*=====================================================
+                APARIȚIE TITLU
+=====================================================*/
 
-window.addEventListener("resize", () => {
+window.addEventListener("load",()=>{
 
-    reveal();
+    const hero=document.querySelector(".hero");
 
-});
+    if(hero){
 
-/*=========================================
-            TASTE
-=========================================*/
-
-document.addEventListener("keydown", e => {
-
-    if (e.key === "Escape") {
-
-        closeLightbox();
+        hero.classList.add("show");
 
     }
 
 });
 
-/*=========================================
-            INITIALIZARE
-=========================================*/
+/*=====================================================
+                PREÎNCĂRCARE IMAGINE
+=====================================================*/
 
-window.addEventListener("load", () => {
+const preloadImage=new Image();
 
-    preloadImages();
+preloadImage.src=CONFIG.photo;
 
-    reveal();
+/*=====================================================
+                SCHIMBĂ IMAGINEA
+=====================================================*/
 
-    console.log("Invitația Dan 80 este pregătită.");
+const heroImage=document.querySelector(".photo-frame img");
+
+if(heroImage){
+
+    heroImage.src=CONFIG.photo;
+
+    heroImage.alt=CONFIG.celebrant;
+
+}
+
+/*=====================================================
+                MUZICA DIN CONFIG
+=====================================================*/
+
+if(music){
+
+    music.src=CONFIG.music;
+
+}
+
+/*=====================================================
+                ÎMPIEDICĂ SELECTAREA
+=====================================================*/
+
+document.addEventListener("dragstart",(e)=>{
+
+    e.preventDefault();
 
 });
 
-/*=========================================
-            SFÂRȘIT
-=========================================*/
+document.addEventListener("contextmenu",(e)=>{
+
+    e.preventDefault();
+
+});
+
+/*=====================================================
+                REDIMENSIONARE
+=====================================================*/
+
+window.addEventListener("resize",()=>{
+
+    updateCountdown();
+
+});
+
+/*=====================================================
+                SCROLL TOP LA DESCHIDERE
+=====================================================*/
+
+window.scrollTo({
+
+    top:0,
+
+    behavior:"instant"
+
+});
+
+/*=====================================================
+                FINAL
+=====================================================*/
+
+console.log(
+
+`${CONFIG.celebrant} • ${CONFIG.age} ani`
+
+);
+
+console.log(
+
+"Invitația a fost încărcată cu succes."
+
+);
