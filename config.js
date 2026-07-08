@@ -35,7 +35,7 @@ const CONFIG = {
 
     rsvpDeadline: "25 august 2026",
 
-    whatsappNumber: "40 744 657 834",
+    whatsappNumber: "40744657834",
 
     /* Muzică */
 
